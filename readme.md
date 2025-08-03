@@ -1,6 +1,39 @@
-# 📈 AI Stock Price Predictor
+# 📈 StockAI Predictor Pro
 
-A comprehensive machine learning application for predicting stock prices using advanced algorithms and real-time data visualization.
+A sophisticated machine learning application for predicting stock prices using Random Forest algorithm, advanced feature engineering, and real-time market data visualization.
+
+## 🎯 Model Architecture & Performance
+
+### Machine Learning Model
+- **Algorithm**: Random Forest Regressor
+- **Implementation**: scikit-learn's RandomForestRegressor
+- **Parameters**:
+  - n_estimators: 100
+  - max_depth: 10
+  - random_state: 42
+  - n_jobs: -1 (parallel processing)
+
+### Feature Engineering
+1. **Price Features**:
+   - Open, High, Low, Close prices
+   - Daily Volume
+   - Price Changes
+
+2. **Technical Indicators**:
+   - Moving Averages (MA_20, MA_50)
+   - Relative Strength Index (RSI)
+   - Volume Moving Average
+   - Price Change Percentage
+
+3. **Lag Features**:
+   - Previous 1, 2, 3, and 5-day closing prices
+   - Historical price patterns
+
+### Model Performance Metrics
+- **RMSE (Root Mean Square Error)**: Measures prediction accuracy
+- **MAE (Mean Absolute Error)**: Average absolute difference
+- **R² Score**: Model's explanatory power
+- **Feature Importance Analysis**: Identifies most influential factors
 
 ## 🚀 Features
 
@@ -68,19 +101,40 @@ market-forecast-app/
 
 ### 🚀 Deploy on Streamlit Cloud
 
-1. **Push to GitHub**
-   - Create a new repository on GitHub
-   - Upload all files to your repository
+1. **Fork the Repository**
+   ```bash
+   # Fork from GitHub
+   https://github.com/techiepookie/StockAI-predictor-pro
+   ```
 
-2. **Deploy on Streamlit Cloud**
-   - Go to [share.streamlit.io](https://share.streamlit.io)
+2. **Clone Your Fork**
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/StockAI-predictor-pro.git
+   cd StockAI-predictor-pro
+   ```
+
+3. **Set Up Environment Variables**
+   - Go to Streamlit Cloud Dashboard
+   - Navigate to App Settings > Secrets
+   - Add your Alpha Vantage API key:
+     ```toml
+     ALPHA_VANTAGE_API_KEY = "your_api_key_here"
+     ```
+
+4. **Deploy on Streamlit Cloud**
+   - Visit [share.streamlit.io](https://share.streamlit.io)
+   - Sign in with GitHub
    - Click "New app"
-   - Select your GitHub repository
-   - Choose `main` branch and `app.py` file
-   - Click "Deploy"
+   - Select your forked repository
+   - Configure deployment:
+     - Main file path: `app.py`
+     - Branch: `main`
+     - Python version: 3.8+
+   - Click "Deploy!"
 
-3. **Access Your App**
-   - You'll get a URL like: `https://yourname-market-forecast.streamlit.app`
+5. **Access Your App**
+   - URL format: `https://YOUR_USERNAME-stockai-predictor-pro.streamlit.app`
+   - Share with your users!
 
 ## 📊 How to Use
 
@@ -151,12 +205,45 @@ AMD     - Advanced Micro Devices
 INTC    - Intel Corporation
 ```
 
-## 🔧 Technical Requirements
+## � Model Evaluation Details
+
+### Performance Metrics
+1. **Root Mean Square Error (RMSE)**
+   - Measures prediction accuracy
+   - Lower values indicate better performance
+   - Calculated as: sqrt(mean((actual - predicted)²))
+
+2. **Mean Absolute Error (MAE)**
+   - Average absolute difference between predictions and actual values
+   - More robust to outliers than RMSE
+   - Calculated as: mean(|actual - predicted|)
+
+3. **R² Score (Coefficient of Determination)**
+   - Indicates the proportion of variance explained by the model
+   - Range: 0 to 1 (higher is better)
+   - Calculated using scikit-learn's r2_score
+
+### Feature Importance Analysis
+- Random Forest provides built-in feature importance scores
+- Higher scores indicate more influential features
+- Top features typically include:
+  1. Recent closing prices (Close_Lag_1)
+  2. Volume indicators
+  3. Technical indicators (RSI, MA)
+
+### Cross-Validation Strategy
+- Time series split to prevent data leakage
+- 80-20 train-test split
+- No shuffle to maintain temporal order
+- Validation on most recent data
+
+## �🔧 Technical Requirements
 
 - **Python**: 3.8 or higher
 - **Memory**: Minimum 512MB RAM
 - **Internet**: Required for fetching real-time stock data
 - **Browser**: Modern web browser (Chrome, Firefox, Safari, Edge)
+- **Storage**: ~100MB for application and dependencies
 
 ## 📦 Dependencies
 
