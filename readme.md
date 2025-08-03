@@ -37,7 +37,7 @@ A sophisticated machine learning application for predicting stock prices using R
 
 ## 🚀 Features
 
-- **Real-time Stock Data**: Fetch live data from Yahoo Finance
+- **Real-time Stock Data**: Fetch live data from Alpha Vantage
 - **AI-Powered Predictions**: Advanced Random Forest ML algorithm with feature engineering
 - **Multiple Markets**: Support for Indian (NSE) and US stocks
 - **Technical Analysis**: Moving averages, volatility, and technical indicators
@@ -52,8 +52,7 @@ A sophisticated machine learning application for predicting stock prices using R
 market-forecast-app/
 │
 ├── app.py                 # Main Streamlit application
-├── fetch_data.py          # Stock data fetching utilities
-├── model.py               # ML model training and prediction
+├── y-test.py               # Test your alpha vantage APi key
 ├── requirements.txt       # Python dependencies
 ├── README.md             # Project documentation
 │
@@ -250,7 +249,6 @@ INTC    - Intel Corporation
 - **streamlit**: Web app framework
 - **pandas**: Data manipulation and analysis
 - **numpy**: Numerical computing
-- **yfinance**: Yahoo Finance data fetching
 - **scikit-learn**: Machine learning algorithms
 - **joblib**: Model serialization
 - **plotly**: Interactive visualizations
@@ -336,6 +334,6 @@ If you encounter any issues or have questions:
 
 ---
 
-**Built with ❤️ using Streamlit, scikit-learn, and Yahoo Finance API**
+**Built with ❤️ using Streamlit, scikit-learn, and Alpha Vantage API**
 
 *Last updated: August 2025*
